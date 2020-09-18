@@ -1,0 +1,113 @@
+create database db_myclassroom
+
+Drop Table classinfo;
+
+CREATE TABLE classinfo (
+  Classname varchar(60) NOT NULL default '',
+  Address1 varchar(50) default NULL,
+  Email varchar(255) default NULL,
+  ContactInfo varchar(255) default NULL,
+  Logo LONGBLOB default NULL,
+  LastModified timestamp NOT NULL default CURRENT_TIMESTAMP on update CURRENT_TIMESTAMP
+ ) ENGINE=InnoDB;
+
+ Alter table classinfo modify column Address1 varchar(255) default NULL
+
+ insert into classinfo (classname,address1,email,contactinfo) values ('blank','blank','blank','blank');
+
+Drop Table Std_details;
+
+CREATE TABLE Std_details (
+  Std_detailid int(11) NOT NULL auto_increment,
+  Std_detailsName varchar(255) default '',
+  PRIMARY KEY  (Std_detailid)
+ ) ENGINE=InnoDB;
+
+ Drop Table Subject_details;
+
+CREATE TABLE Subject_details (
+  Subject_detailid int(11) NOT NULL auto_increment,
+  Subject_detailsName varchar(255) default '',
+  PRIMARY KEY  (Subject_detailid)
+ ) ENGINE=InnoDB;
+
+Drop Table Subject_Class_Mapping;
+
+CREATE TABLE Subject_Class_Mapping (
+  id int(11) NOT NULL auto_increment,
+  Std_detailid int(11) NOT NULL,
+  Subject_detailid int(11) NOT NULL,
+  PriceDetails int(11) NOT NULL default 0,
+  PRIMARY KEY  (id)
+ ) ENGINE=InnoDB;
+
+ Drop Table Students;
+
+CREATE TABLE Students (
+  Student_id int(11) NOT NULL auto_increment,
+  StudentFName varchar(255) default '',
+  StudentMName varchar(255) default '',
+  StudentLName varchar(255) default '',
+  StudentAddress longtext default NULL,
+  StudentEmail varchar(255) default NULL,
+  StudentContactInfo varchar(255) default NULL,
+  Student_Dob date default '1900-01-01',
+  Student_gender varchar(20),
+  Student_AadhaarNo Varchar(30),
+  Student_Reference varchar (255),
+  Student_FatherName varchar (255),
+  Student_FatherContactNo varchar (255),
+  Student_MotherName varchar (255),
+  Student_MotherContactNo varchar (255),
+  Student_ProfilePic LONGBLOB default NULL,
+  Student_CreationDate timestamp NOT NULL default CURRENT_TIMESTAMP,
+  Primary Key (Student_id)
+ ) ENGINE=InnoDB;
+
+
+Drop Table Students_History;
+
+CREATE TABLE Students_History(
+  StudentHistory_recordID int(11) NOT NULL auto_increment,
+  Student_id int(11) NOT NULL,
+  StudentFName varchar(255) default '',
+  StudentMName varchar(255) default '',
+  StudentLName varchar(255) default '',
+  StudentAddress longtext default NULL,
+  StudentEmail varchar(255) default NULL,
+  StudentContactInfo varchar(255) default NULL,
+  Student_Dob date default '1900-01-01',
+  Student_gender varchar(20),
+  Student_AadhaarNo Varchar(30),
+  Student_Reference varchar (255),
+  Student_FatherName varchar (255),
+  Student_FatherContactNo varchar (255),
+  Student_MotherName varchar (255),
+  Student_MotherContactNo varchar (255),
+  Student_ProfilePic LONGBLOB default NULL,
+  Record_Action varchar (255)default 'MODIFIED',
+  ChangeTimestamp timestamp NOT NULL default CURRENT_TIMESTAMP,
+  Primary key (StudentHistory_recordID)
+ ) ENGINE=InnoDB;
+
+
+Drop Table Student_Subject_Class_Mapping;
+
+CREATE TABLE Student_Subject_Class_Mapping (
+  id int(11) NOT NULL auto_increment,
+  Student_id int(11) NOT NULL,
+  Std_detailid int(11) NOT NULL,
+  Subject_detailid int(11) NOT NULL,
+  PRIMARY KEY  (id)
+ ) ENGINE=InnoDB;
+
+Drop Table Student_Fees_Details;
+
+CREATE TABLE Student_Fees_Details(
+  id int(11) NOT NULL auto_increment,
+  Student_id int(11) NOT NULL,
+  TotalFees int(11) NOT NULL,
+  Discount int(11) NOT NULL,
+  FinalTotalFees int(11) NOT NULL default 0,
+  PRIMARY KEY  (id)
+ ) ENGINE=InnoDB;

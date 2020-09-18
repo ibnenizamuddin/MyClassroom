@@ -1,0 +1,19 @@
+body{
+
+	background-image: url(/static/startup.jpg);
+	background-size: cover;
+
+}
+  
+button{
+	margin-left: 45%;
+	margin-top: 30%;
+	align-self: center;	
+	width: 200px;
+	height: 50px;
+	background-color: beige;
+	size: 60%;
+	font-size: large;
+	font-weight: bolder;
+
+}

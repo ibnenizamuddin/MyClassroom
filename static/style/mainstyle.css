@@ -1,0 +1,78 @@
+body{
+
+	background-image: url(/static/main2.jpg);
+	background-size: cover;
+	background-color: blanchedalmond;
+}
+
+label{
+	font-size: large;
+	font-weight: bolder;
+}
+ul {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	overflow: hidden;
+	background-color: #333;
+	position: fixed;
+	top: 0;
+	width: 100%;
+  }
+  
+li {
+	float: left;
+  }
+
+li a {
+	display: block;
+	color: white;
+	text-align: center;
+	padding: 14px 16px;
+	text-decoration: none;
+  }
+  
+li a:hover {
+	background-color: #111;
+  }
+.submenu {
+	margin-top: 10px ;
+
+  }
+
+
+
+div{
+	top: 100px;
+	margin: 0;
+	
+  }
+  
+.logoImg img{
+	object-fit: cover;
+	width: 400px;
+	height: 250px;
+  }
+
+.main-content{
+	margin-top: 5%;
+  }
+
+.alerttable td{
+	font-weight: bolder;
+
+}
+.SubjectMappingTable{
+	margin-left: 0px;
+}
+
+.SubjectMappingTable tr:not(:first-child){
+	cursor: pointer;transition: all .25s ease-in-out;
+}
+.SubjectMappingTable tr:not(:first-child):hover{
+	background-color: lightgreen;
+}
+
+.SubjectMappingTable{ 
+	background-color: whitesmoke;
+}

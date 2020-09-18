@@ -1,0 +1,115 @@
+<!doctype html>
+<html>
+<head>
+<title>Student Registration</title>
+<link rel="stylesheet" type="text/css" href="/static/style/StudentRegistration.css">
+</head>
+<body>
+<form   action="/RegisterStudentPrint" method = "POST" enctype="multipart/form-data">
+
+<ul>
+	<li><a href="MainScreen.html">Home</a></li>
+</ul>
+
+<div class="MainContent">
+	   <div class="Header">
+
+		<div>
+		<label style="margin-top:30px;"><h1>{{ClassnameHtml}}</h1></label>
+		<img src="data:image/jpeg;base64,{{logoimage}}" style="width: 100px;height: 70px;background-size: cover;float:right"/> 
+		</div>
+		<div>
+		<label style="margin-top:0px;">{{Address1Html}} Email:{{EmailHtml}} Contact: {{ContactInfoHtml}} </label> 
+        
+		</div>
+		</div>
+
+		<div class="personalDetail">
+
+        <table width=100% style="margin-top:30px;">
+        <tr>
+		<td><b>Student Full Name:</b> <H1 style="margin-top:30px;">{{StudentFNameHtml}} {{StudentMNameHtml}} {{StudentLNameHtml}}<h1></td>
+        <td><img src="data:image/jpeg;base64,{{studentimage}}" style="width: 200px;height: 200px;background-size: cover;float:right"></td>
+		</tr>
+		</table>
+
+		<table border=3 width=100% style="background-color: whitesmoke;">
+		<tr>
+		<td><Label><h2>PERSONAL DETAILS</h2></label></td>
+		<td><b>Roll Number : {{StudentRollNoHTML}}</b></td>
+	    </tr>
+		<tr>
+		<td><Label><b>Student DOB: {{Student_DobHtml}}</b></label></td>
+		<td><Label><b>Gender: {{Student_genderHtml}}</b></label></td>
+		<td><Label><b>Reference By:  {{Student_ReferenceHtml}}</b></label></td>
+		</tr>
+
+		<tr>
+		<td><Label><b>StudentAddress: {{StudentAddressHtml}}</b></label></td>
+		</tr>
+		<tr>
+		<td><Label><b>StudentEmail: {{StudentEmailHtml}} </b></label></td>
+		<td><Label><b>StudentContactInfo: {{StudentContactInfoHtml}}</b></label></td>
+		<td><Label><b>Aadhaar No: {{StudentEmailHtml}}</b></label></td>
+		</tr>
+		<tr>
+		<td><Label><h2>PARENTS/GUARDIAN DETAILS</h2></label></td>
+		</tr>
+		<tr>
+		<td><b>Father Name/Guardian Name: </b></td><td>  {{Student_FatherNameHtml}} </td> 
+		</tr>
+		<td>ContactInfo: </td>
+		<td>{{Student_FatherContactNoHtml}}</td>
+		</tr>
+		  
+		 <tr>
+		<td><b>Mother Name: </b></td>
+		<td>{{Student_MotherNameHtml}}</td>
+		</tr>
+		  </tr>
+		<td><b>ContactInfo: </b></td>
+		<td>{{Student_MotherContactNoHtml}} </td>
+		</tr>
+		</table>
+
+		<br>
+
+
+		<table  border=3 width=100% style="background-color: whitesmoke;" >
+        <tr>
+		 
+		<td><h2>Fees Details: </h2></td>
+        </tr>
+			{% for x in fullsubjectlistHTML%}
+					<tr>
+						{% for y in x%}
+					<td >{{y}}</td> 
+						{% endfor%}
+					</tr>           
+						{% endfor%}
+
+		 <tr>
+		 <td></td>
+		<td><b>Total Fees: </b> </td>
+		 <td><Label><b>{{Student_TotalFeesHTML}}</b></label></td>
+		 </tr>
+		 <tr>
+		<td></td>
+		<td><b>Discount Amount: </b></td>
+		 <td>
+		 <Label><b>{{Student_DiscountHTML}} </b></label></td>
+		 </tr>
+
+		 <tr>
+		<td></td>
+		<td><b>Final Total Fees: </b></td>
+		 <td><Label><b> {{Student_FinalTotalHTML}} </b></label></td>
+		 </tr>
+
+		</table>
+
+	<input type="submit" value="Print" name="PrintForm" style="height:50px;width:100px;" onclick="javascript:window.print()"></td>
+ </div>
+</form>
+</body>
+</html>

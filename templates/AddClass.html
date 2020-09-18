@@ -1,0 +1,49 @@
+<!doctype html>
+<html>
+<head>
+<title>Add Standard</title>
+<link rel="stylesheet" type="text/css" href="/static/style/mainstyle.css">
+</head>
+<body>
+<ul>
+	<li><a href="ClassInfo.html">Class Information</a></li>
+    <li><a href="AddClass.html">Class</a></li>	
+	<li><a href="Subjects.html">Subjects</a></li>
+  <li><a href="MainScreen.html">Home</a></li>
+</ul>
+  <form action="/stdinfo" method = "POST" enctype="multipart/form-data">
+  <div class="main-content" >
+  <table>
+  <tr>
+  <td><Label>Std: </label></td>
+  <td><input type="text"  name="StdName" style="height:30px;width:200px;" ></td>
+   <br>
+  </tr>
+  <tr>
+  <td></td>
+  <td><input type="submit" value="AddStdInfo" name="submitButton" id="submitButton" style="height:40px;"></td>
+  </tr>
+  <tr>
+						<td><Label>Std: </Label></td>
+						<td>
+						<select  name="Std_detailsName" id="Std_detailsName" >
+							{% for x in stdlist%}
+							<option value={{x.0}}>{{x.1}}</option>
+							{% endfor%}
+							</select>
+						</td>
+   </tr>
+  <tr>
+  <td></td>
+ <td><input type="submit" value="RemoveStdInfo" name="submitButton" id="submitButton" style="height:40px;"></td>
+</tr>
+
+  </table>
+  <br>
+  </div>
+
+  </form>
+
+    
+</body>
+</html>

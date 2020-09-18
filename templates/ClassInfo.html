@@ -1,0 +1,88 @@
+<!doctype html>
+<html>
+<head>
+<title>Class Info</title>
+<link rel="stylesheet" type="text/css" href="/static/style/mainstyle.css">
+</head>
+<body>
+<ul>
+	<li><a href="ClassInfo.html">Class Information</a></li>	
+    <li><a href="AddClass.html">Class</a></li>
+	<li><a href="Subjects.html">Subjects</a></li>
+
+  <li><a href="MainScreen.html">Home</a></li>
+</ul>
+  <form action="/addclassinfo" method = "POST" enctype="multipart/form-data">
+  <div class="main-content" >
+  <table>
+  <tr>
+  <td>
+   <Label>Class Name: </label>
+      </td>
+   <td>
+   <input type="text"  name="ClassName" style="height:30px;width:400px;" value="{{ClassnameHtml}}" required >
+   <br>
+   <br>
+     </td>
+     </tr>
+
+    <tr>
+    
+  <td>
+   <Label>Class Email: </label>
+   </td>
+   <td>
+   <input type="text"  name="ClassEmail" style="height:30px;width:400px;" value="{{EmailHtml}}" required >
+
+       </td>
+     </tr>
+    <tr>
+  <td>
+   <Label>Class Address: </label>
+      </td>
+   <td>
+   <input type="text"  name="ClassAddress" style="height:50px;width:400px;" value="{{Address1html}}" required >
+
+       </td>
+     </tr>
+    <tr>
+  <td>
+    <Label>Contact Details: </label>
+       </td>
+   <td>
+   <input type="text"  name="ClassContact" style="height:30px;width:400px;" value="{{ContactInfoHtml}}" required >
+    <tr>
+  <td>
+   <Label>Class Logo: </label>
+      </td>
+   <td>
+   <input type="file" name="file" id="file" required  />
+   <label><b>NOTE:Format should be JPG only</b></label>
+      </td>
+     </tr>
+    <tr>
+      <td>
+ 
+       </td>
+  <td>
+   <input type="submit" value="SaveClassInfo" name="SaveClassInfo">
+       </td>
+     </tr>
+     <tr>
+     <td>
+     <label>Last Data uodated on:</b> <label>
+     </td>
+     <td>
+       <label> <b>{{LastUpdatedDate}}</b> <label>
+      </td>
+     </tr>
+   </table>
+  </div>
+  <div class="logoImg">
+      <img src="data:image/jpeg;base64,{{LogoHtml}}"/>
+  </div>
+  </form>
+
+    
+</body>
+</html>

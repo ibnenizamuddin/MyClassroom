@@ -1,0 +1,52 @@
+<!doctype html>
+<html>
+<head><title>Student Profile</title>
+<link rel="stylesheet" type="text/css" href="/static/style/StudentProfile.css">
+</head>
+<body>
+<form   action="/SearchStudent" method = "POST" enctype="multipart/form-data">
+
+<ul>
+	<li><a href="StudentRegistration.html">Student Registration</a></li>
+    <li><a href="StudentProfile.html">Student Profile</a></li>
+	<li><a href="MainScreen.html">Home</a></li>
+</ul>
+
+<div class="grid-container" style="margin-top:50px;">
+  <div class="grid-item1">
+  <Label><b>Enter Roll No:</b></label>
+  <br>
+  <input type="text"  name="StudentRollNo" style="height:20px;width:100px;" required>
+  <select  name="SearchBy" id="SearchBy">
+  <option value="RollNumber">Roll No</option>
+  <option value="StudentName">Student Name</option>
+  </select>
+  <input type="submit" value="search" name="SearchStudentInfo" style="height:30px;width:100px;">
+  {{errormessagehtml}}
+  </div>
+  <div class="grid-item2">
+  <table>
+  <tr><h3>Name: {{StudentFNameHtml}} {{StudentMNameHtml}} {{StudentLNameHtml}}</h3></tr>
+  <tr><h4>Contact Info: {{StudentContactInfoHtml}}</h4></tr>
+  <tr><h4>Address: {{StudentAddressHtml}}</h4></tr>
+  <tr><h4>Email: {{StudentEmailHtml}}</h4></tr>
+  </table>
+  </div>
+  <div class="grid-item3">
+  <img alt="Student Image" src="data:image/jpeg;base64,{{studentimage}}" style="width: 200px;height: 200px;background-size: cover;float:right">
+  </div>
+  <div class="grid-item4">
+       <table>
+  		{% for x in StudentProfileDatahtml%}
+      <tr style="width: 100%%">
+			<input type="submit" value="RollNo: {{x}}" name="SearchResultStudentInfo" style="height:50px;width:100%;">
+      <tr>
+      <br>
+         {% endfor%}
+         </table>
+
+  </div>
+</div>
+</form>
+</body>
+</html>

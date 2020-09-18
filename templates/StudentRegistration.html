@@ -1,0 +1,115 @@
+<!doctype html>
+<html>
+<head>
+<title>Student Registration</title>
+<link rel="stylesheet" type="text/css" href="/static/style/StudentRegistration.css">
+</head>
+<body>
+<form action="/StudentRegistrationStdSubject" method = "POST" enctype="multipart/form-data">
+
+<ul>
+	<li><a href="StudentRegistration.html">Student Registration</a></li>
+    <li><a href="StudentProfile.html">Student Profile</a></li>
+	<li><a href="MainScreen.html">Home</a></li>
+</ul>
+
+<div class="MainContent">
+	   <div class="Header">
+
+		<div>
+		<label style="margin-top:30px;">{{ClassnameHtml}}</label>
+		<img src="data:image/jpeg;base64,{{logoimage}}" style="width: 100px;height: 70px;background-size: cover;float:right"/> 
+		</div>
+		<div>
+		<label style="margin-top:0px;">{{Address1Html}} Email:{{EmailHtml}} Contact: {{ContactInfoHtml}} </label> 
+        
+		</div>
+		</div>
+
+		<div class="personalDetail">
+		<table>
+		<tr>
+		<td><Label><b>PERSONAL DETAILS</b></label></td>
+	 </tr>
+		<tr>
+		<td><Label><b>First Name:</b></label></td>
+		<td><Label><b>Middle Name:</b></label></td>
+		<td><Label><b>Last Name:</b></label></td>
+		</tr>
+		<tr>
+		<td><input type="text"  name="StudentFName" style="height:20px;width:300px;" value="{{StudentFNameHtml}}" required ></td>
+		<td><input type="text"  name="StudentMName" style="height:20px;width:300px" value="{{StudentMNameHtml}}"  ></td>
+		<td><input type="text"  name="StudentLName" style="height:20px;width:300px" value="{{StudentLNameHtml}}" required ></td>
+		</tr>
+		<tr>
+		<td><Label><b>StudentAddress:</b></label></td>
+		<td><input type="text"  name="StudentAddress" style="height:50px;width:300px;" value="{{StudentAddressHtml}}" required ></td>
+		</tr>
+		<tr>
+		<td><Label><b>StudentEmail:</b></label></td>
+		<td><Label><b>StudentContactInfo:</b></label></td>
+		<td><Label><b>Aadhaar No:</b></label></td>
+		</tr>
+		<tr>
+		<td><input type="text"  name="StudentEmail" style="height:20px;width:300px;" value="{{StudentEmailHtml}}"  ></td>
+		<td><input type="text"  name="StudentContactInfo" style="height:20px;width:300px;" value="{{StudentContactInfoHtml}}" required ></td>
+		<td><input type="text"  name="Student_AadhaarNo" style="height:20px;width:300px;" value="{{Student_AadhaarNoHtml}}"  ></td>
+		</tr>
+		<tr>
+		<td><Label><b>Student DOB:</b></label></td>
+		<td><Label><b>Gender:</b></label></td>
+		<td><Label><b>Reference By:</b></label></td>
+		</tr>
+		<tr>
+		<td><input type="date" name="Student_Dob" style="height:20px;width:300px;" value="{{Student_DobHtml}}" required ></td>
+		<td>
+		<select  name="Student_gender" id="Student_gender">
+		<option value="Male">Male</option>
+		<option value="Female">Female</option>
+		<option value="Other">Other</option>
+		</select>
+		</td>
+		<td><input type="text"  name="Student_Reference" style="height:20px;width:300px;" value="{{Student_ReferenceHtml}}"  ></td>
+		<td></td>
+		</tr>
+		<tr>
+		<td><Label><b>PARENTS/GUARDIAN DETAILS</b></label></td>
+		</tr>
+		<tr>
+		<td><Label><b>Father Name/Guardian Name:</b></label></td>
+		<td><Label><b>ContactInfo:</b></label></td>
+		</tr>
+		<tr>
+		<td><input type="text"  name="Student_FatherName" style="height:20px;width:300px;" value="{{Student_FatherNameHtml}}" required ></td>
+		<td><input type="text"  name="Student_FatherContactNo" style="height:20px;width:300px;" value="{{Student_FatherContactNoHtml}}" required ></td>
+		</tr>
+
+		<tr>
+		<td><Label><b>Mother Name:</b></label></td>
+		<td><Label><b>ContactInfo:</b></label></td>
+		</tr>
+		<tr>
+		<td><input type="text"  name="Student_MotherName" style="height:20px;width:300px;" value="{{Student_MotherNameHtml}}"  ></td>
+		<td><input type="text"  name="Student_MotherContactNo" style="height:20px;width:300px;" value="{{Student_MotherContactNoHtml}}"  ></td>
+		</tr>
+        <tr>
+		<td><Label>Std: </Label></td>
+		<td>
+		<select  name="Std_detailsName" id="Std_detailsName">
+		   	{% for x in stdlist%}
+			<option value={{x.0}}>{{x.1}}</option>
+			{% endfor%}
+			</select>
+		</td>
+		</tr>
+
+		<tr><td></td>
+		<td><input type="submit" value="Next" name="SaveStudentInfo" style="height:50px;width:100px;"></td>
+		</tr>
+
+		<table>
+
+		</div>
+</form>
+</body>
+</html>

@@ -1,0 +1,135 @@
+<!doctype html>
+<html>
+<head>
+<title>Main Page</title>
+<link rel="stylesheet" type="text/css" href="/static/style/mainstyle.css">
+</head>
+<body>
+<ul>
+	<li><a href="ClassInfo.html">Class Information</a></li>	
+    <li><a href="AddClass.html">Class</a></li>
+	<li><a href="Subjects.html">Subjects</a></li>
+  <li><a href="MainScreen.html">Home</a></li>
+</ul>
+  <form action="/subjectsinfo" method = "POST" enctype="multipart/form-data">
+  <div class="main-content" >
+  <table>
+  <tr>
+  <td><Label>Subject Name: </label></td>
+  <td><input type="text"  name="SubjectName" style="height:20px;width:200px;" ></td>
+   <br>
+  </tr>
+  <tr>
+  <td></td>
+  <td><input type="submit" value="AddSubjectName" name="submitButton" id="submitButton" style="height:40px;"></td>
+  </tr>
+  <tr>
+						<td><Label>Subject Name: </Label></td>
+						<td>
+						<select  name="Subject_detailsName" id="Subject_detailsName" >
+							{% for x in Subjectlist%}
+							<option value={{x.0}}>{{x.1}}</option>
+							{% endfor%}
+							</select>
+						</td>
+   </tr>
+  <tr>
+  <td></td>
+ <td><input type="submit" value="RemoveSubjectName" name="submitButton" id="submitButton" style="height:40px;"></td>
+</tr>
+
+  </table>
+  <br>
+  </div>
+  <div>
+  <table>
+  <tr>
+  <td><Label>Subject Name: </Label></td>
+  <td>
+    <select  name="Subject_detailsNameID" id="Subject_detailsNameID" >
+    {% for x in Subjectlist%}
+    <option value={{x.0}}>{{x.1}}</option>
+    {% endfor%}
+    </select>
+  </td>
+  </tr>
+    <td><Label>Std: </Label></td>
+  <td>
+    <select  name="Std_detailsNameID" id="Std_detailsNameID" >
+    {% for x in stdlist%}
+    <option value={{x.0}}>{{x.1}}</option>
+    {% endfor%}
+    </select>
+  </td>
+  </tr>
+  <tr>
+  <td><Label>Price: </Label></td>
+  <td><input type="text"  name="SubjectPrice" style="height:20px;width:100px;" ></td>
+  </tr>
+  </tr>
+  <tr>
+  <td></td>
+  <td><input type="submit" value="MapSubjectName" name="submitButton" id="submitButton" style="height:40px;"></td>
+  </tr>
+
+  </table>
+  <br>
+  </div>
+
+
+        <table  style="margin-left:0%;">
+        <tr>
+          <td><input type="text"  name="MappingID" id="MappingID" style="height:20px;width:100px;" readonly></td>
+          <td><input type="submit" value="RemoveMapSubjectName" name="submitButton" id="submitButton" style="height:40px;"></td>
+        </tr>
+        </table>
+        <br>
+          <div style="margin-left:0%;height:25px;margin-top:0%;" >
+	
+					<table id="AlertHeaderQueueTable" border=3 width=90% style="min-hieght: 300px;background-color: #008CBA;">
+          <tr>
+          </tr>
+					<tr>
+					<th>MappingID</th>
+					<th>Std_detailsName</th>
+					<th>Subject_detailsName</th>
+					<th>Amount</th>
+					</tr>
+					</table>
+					</div>
+<div style="margin-left:0%;overflow-y: scroll;height:300px;margin-top:0%;" >
+					<table id="SubjectMappingTable" class="SubjectMappingTable" border=3 width=100% >
+								
+						{% for x in result%}
+					<tr>
+						{% for y in x%}
+					<td width="3%">{{y}}</td> 
+						{% endfor%}
+					</tr>           
+						{% endfor%}
+		            				   
+					</table>
+</div>
+  
+
+  </form>
+<script>
+
+
+  var table = document.getElementById('SubjectMappingTable');
+  
+  for(var i = 0; i < table.rows.length; i++)
+  {
+      table.rows[i].onclick = function()
+      {
+           
+        document.getElementById("MappingID").value=this.cells[0].innerHTML;
+  
+      };
+  }
+
+</script>
+
+    
+</body>
+</html>
